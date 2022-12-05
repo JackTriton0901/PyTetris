@@ -68,14 +68,6 @@ show_next = Show next tetromino(true/false)
 
 harddrop = Enable hard drop(harddrop/harddrop old/sonicdrop/false)
 
-hscore_m = High score of Modern scoring
-
-hscore_b = High score of BPS scoring
-
-hscore_s = High score of SEGA scoring
-
-hscore_n = High score of NES scoring
-
 slevel = Starting level
 
 rotation = Rotating system(srs/arika srs/ars/sega/left nrs/right nrs/original)
