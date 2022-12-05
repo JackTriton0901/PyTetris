@@ -4,6 +4,7 @@ _Python based Tetris emulator_
 ## Requirement
 **tkinter**, **pygame**
 
+Open Pytetris.py with IDLE and run it to play the game.
 ## Config
 [COLOR]
 
