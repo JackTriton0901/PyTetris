@@ -1,5 +1,6 @@
 # JackT's PyTetris
 _Python based Tetris emulator_
+![Title](https://github.com/JackTriton0901/PyTetris/blob/main/icon.png)
 ## Requirement
 **tkinter**, **pygame**
 
@@ -70,7 +71,7 @@ harddrop = Enable hard drop(harddrop/harddrop old/sonicdrop/false)
 
 slevel = Starting level
 
-rotation = Rotating system(srs/arika srs/ars/sega/left nrs/right nrs/original)
+rotation = Rotating system(srs/pentomino/arika srs/tbrs/trrs/arika tbrs/dtet/ars/sega/left nrs/right nrs/original)
 
 doublet = Allow double turning(true/false)
 
