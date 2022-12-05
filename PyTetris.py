@@ -31,6 +31,7 @@ end = time.time()
 pause_time = 0.0
 karl = 0.0
 parl = 0.0
+snow = 0
 
 btb = 1.0
 pc = False
@@ -769,18 +770,21 @@ def tspin_perser(x, y, turn, tspin, tmini):
         return "false"
     
 def dropTetris(hard=False):
-    global moveX, moveY, pc, add, replayed, scene, stone, type_0, type_1, type_2, type_3, type_4, type_5, tspin, pause, spin, tmini, btb, dturn, turn, hcount, hardd, type_c, type_next, combo, hdrop, timer, rest_line, line, listed, score, level, hscore
+    global moveX, moveY, pc, add, replayed, scene, stone, snow, type_0, type_1, type_2, type_3, type_4, type_5, tspin, pause, spin, tmini, btb, dturn, turn, hcount, hardd, type_c, type_next, combo, hdrop, timer, rest_line, line, listed, score, level, hscore
     afterTetro = []
     chain = []
     field_a = []
     field_b = []
     afterTetro.extend(tetro[type_c][turn])
     chain.extend(tetro[type_c][turn])
+    if snow != 0:
+        timer = snow
+        snow = 0
     if pause is True or scene == 0 or stone is True:
         result = judge(moveX, moveY, afterTetro)
     else:
         result = judge(moveX, moveY+1, afterTetro)
-    if result==False or hard is True:
+    if spin is False and (result==False or hard is True):
         field_a = field
         if type_c in even_pic:
             add = 0.5
@@ -806,7 +810,6 @@ def dropTetris(hard=False):
         hardd = False
         field_b = field
         deleteLine()
-        spin = False
         afterTetro = []
         hcount = 1
         if field == field0:
@@ -1247,10 +1250,11 @@ def dropTetris(hard=False):
         if score >= hscore:
             hscore = score
     hdrop = False
-    if result is True:
-        can.after(timer, dropTetris)
-    elif result is False:
-        can.after(500, dropTetris)
+    spin = False
+    if result is False and timer < 500:
+        snow = timer
+        timer = 500
+    can.after(timer, dropTetris)
 
     if glob["leveling"] == "normal":
         if rest_line <= 0:
