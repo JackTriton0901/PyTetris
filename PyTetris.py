@@ -1,5 +1,6 @@
 import tkinter as tk
 import random
+import threading
 from tkinter import messagebox
 import configparser
 import time
@@ -1629,6 +1630,7 @@ sant.create_image(455, 220, image=Logo)
 ver_lab.place(x=700, y=615)
 menu_lab.place(x=210, y=550)
 start = time.time()
-gameLoop()
+thread1 = threading.Thread(target=gameLoop)
+thread1.start()
 dropTetris()
 win.mainloop()
